@@ -49,4 +49,12 @@ class ApiResponseService
            'max_attempts' => $maxAttempts,
         ], Response::HTTP_TOO_MANY_REQUESTS);
     }
+
+    public static function successTokenResponse($token): JsonResponse
+    {
+        return self::success([
+            'token' => $token,
+            'token_type' => 'bearer',
+        ]);
+    }
 }
