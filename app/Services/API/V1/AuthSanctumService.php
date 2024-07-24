@@ -29,8 +29,7 @@ class AuthSanctumService implements AuthServiceInterface
     {
         $user = User::create($data);
 
-        $token = auth()
-            ->$user
+        $token = $user
             ->createToken(data_get($data, 'device_name'))
             ->plainTextToken;
 
