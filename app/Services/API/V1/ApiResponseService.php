@@ -35,7 +35,7 @@ class ApiResponseService
     public static function notFound($message = 'Not Found'): JsonResponse
     {
         return response()->json([
-           'status' => 'error',
+            'status' => 'error',
             'message' => $message,
         ], Response::HTTP_NOT_FOUND);
     }
@@ -43,10 +43,10 @@ class ApiResponseService
     public static function throttled(int $maxAttempts = 60, int $retryAfter = 60): JsonResponse
     {
         return response()->json([
-           'status' => 'error',
-           'message' => 'Too many attempts, please slow down the request.',
-           'retry_after' => $retryAfter,
-           'max_attempts' => $maxAttempts,
+            'status' => 'error',
+            'message' => 'Too many attempts, please slow down the request.',
+            'retry_after' => $retryAfter,
+            'max_attempts' => $maxAttempts,
         ], Response::HTTP_TOO_MANY_REQUESTS);
     }
 

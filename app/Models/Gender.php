@@ -11,7 +11,7 @@ class Gender extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     public function books(): HasMany
