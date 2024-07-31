@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('isbn', 13);
             $table->unsignedInteger('pages');
             $table->unsignedTinyInteger('stock');
+            $table->date('published_at');
             $table->timestamps();
         });
     }
