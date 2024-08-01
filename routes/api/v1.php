@@ -18,6 +18,7 @@ Route::prefix('auth')->group(function(){
         Route::post('logout', LogoutController::class);
     });
 });
+
 Route::prefix('librery')->middleware('auth:sanctum')->group(function(){
     Route::apiResource('authors', AuthorController::class);
 });
