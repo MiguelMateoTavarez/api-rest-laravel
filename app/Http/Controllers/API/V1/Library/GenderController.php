@@ -54,6 +54,7 @@ class GenderController extends Controller
 
     public function destroy(Gender $gender): JsonResponse
     {
+        //TODO: Prevee que al momento de eliminar un genero dejar saber si tiene un libro relacionado
         $gender->delete();
 
         return ApiResponseService::success(

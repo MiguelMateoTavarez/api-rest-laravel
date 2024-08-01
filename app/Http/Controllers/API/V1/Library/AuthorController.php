@@ -52,6 +52,7 @@ class AuthorController extends Controller
 
     public function destroy(Author $author)
     {
+        //TODO: Prevee que al momento de eliminar un autor dejar saber si tiene un libro relacionado
         $author->delete();
 
         return ApiResponseService::success(

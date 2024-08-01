@@ -18,6 +18,7 @@ class Book extends Model
         'isbn',
         'pages',
         'stock',
+        'published_at',
     ];
 
     public function casts(): array
