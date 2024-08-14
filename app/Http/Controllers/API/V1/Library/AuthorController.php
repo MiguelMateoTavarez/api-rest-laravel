@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\V1\Library;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\V1\Controller;
 use App\Http\Requests\API\V1\Author\StoreAuthorRequest;
 use App\Http\Requests\API\V1\Author\UpdateAuthorRequest;
 use App\Http\Resources\API\V1\AuthorResource;
@@ -16,7 +16,7 @@ class AuthorController extends Controller
     public function index(): JsonResponse
     {
         return ApiResponseService::success(
-            AuthorResource::collection(Author::paginate())->resource,
+            AuthorResource::collection(Author::paginate()),
             'Authors retrieved successfully',
         );
     }

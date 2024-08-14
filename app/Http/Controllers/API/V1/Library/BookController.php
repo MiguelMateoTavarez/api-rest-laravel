@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\V1\Library;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\V1\Controller;
 use App\Http\Requests\API\V1\Book\StoreBookRequest;
 use App\Http\Requests\API\V1\Book\UpdateBookRequest;
 use App\Http\Requests\API\V1\Book\UpdateBookStockRequest;
@@ -10,15 +10,15 @@ use App\Http\Resources\API\V1\BookResource;
 use App\Models\Book;
 use App\Services\API\V1\ApiResponseService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BookController extends Controller
 {
     public function index(): JsonResponse
     {
+        ray()->showQueries();
         return ApiResponseService::success(
-            BookResource::collection(Book::with('author', 'gender')->paginate())->resource,
+            BookResource::collection(Book::with(['author', 'gender'])->paginate()),
             'Books retrieved successfully'
         );
     }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
+#[Info(version: '1.0.0', title: 'Library API')]
 abstract class Controller
 {
     public function __construct()

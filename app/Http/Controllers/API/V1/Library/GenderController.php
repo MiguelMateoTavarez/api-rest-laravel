@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\V1\Library;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\V1\Controller;
 use App\Http\Requests\API\V1\Gender\StoreGenderRequest;
 use App\Http\Requests\API\V1\Gender\UpdateGenderRequest;
 use App\Http\Resources\API\V1\AuthorResource;
@@ -10,7 +10,6 @@ use App\Http\Resources\API\V1\GenderResource;
 use App\Models\Gender;
 use App\Services\API\V1\ApiResponseService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class GenderController extends Controller
@@ -18,7 +17,7 @@ class GenderController extends Controller
     public function index(): JsonResponse
     {
         return ApiResponseService::success(
-            GenderResource::collection(Gender::paginate())->resource,
+            GenderResource::collection(Gender::paginate()),
             'Genders retrieved successfully'
         );
     }
